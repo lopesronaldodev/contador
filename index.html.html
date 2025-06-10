@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronaldo & Juliana</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: url('FOTO_DO_CASAL.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        #contador {
+            font-size: 2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>Ronaldo & Juliana</h1>
+        <p>Estamos juntos há:</p>
+        <div id="contador"></div>
+    </div>
+
+    <!-- Música de fundo -->
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/GPXiL6ynVG8?autoplay=1&loop=1&playlist=GPXiL6ynVG8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    <script>
+        const inicioNamoro = new Date("2025-02-22T00:00:00");
+
+        function atualizaContador() {
+            const agora = new Date();
+            const diff = agora - inicioNamoro;
+
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diff / (1000 * 60)) % 60);
+            const segundos = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("contador").textContent = 
+                `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+        }
+
+        setInterval(atualizaContador, 1000);
+        atualizaContador();
+    </script>
+</body>
+</html>
